@@ -4,7 +4,7 @@
 
 ## Installation
 
-https://github.com/btcsuite/btcd/releases
+
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
