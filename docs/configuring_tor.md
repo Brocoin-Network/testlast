@@ -60,7 +60,7 @@ address.
 
 ```text
 HiddenServiceDir /var/tor/btcd
-HiddenServicePort 8244 127.0.0.1:8244
+HiddenServicePort 8766 127.0.0.1:8766
 ```
 
 Once Tor is configured to provide the hidden service and you have obtained your

@@ -84,7 +84,7 @@ With the following commands you can control *docker-compose*:
 
 ### Full node without RPC port
 
-Let's start with an easy example. If you just want to create a full node without the need of using the RPC port, you can use the following example. This example will launch *btcd* and exposes only the default p2p port 8244 to the outside world:
+Let's start with an easy example. If you just want to create a full node without the need of using the RPC port, you can use the following example. This example will launch *btcd* and exposes only the default p2p port 8766 to the outside world:
 
 ```yaml
 version: "2"
@@ -98,7 +98,7 @@ services:
     volumes:
       - btcd-data:/root/.btcd
     ports:
-      - 8244:8244
+      - 8766:8766
 
 volumes:
   btcd-data:
@@ -120,7 +120,7 @@ services:
     volumes:
       - btcd-data:/root/.btcd
     ports:
-      - 8244:8244
+      - 8766:8766
       - 8221:8221
     command: [
         "--rpcuser=[CHOOSE_A_USERNAME]",

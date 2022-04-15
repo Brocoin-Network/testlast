@@ -71,7 +71,7 @@ Application Options:
                               fee to the given amount in thousands of bytes per
                               minute (default: 15)
       --listen=               Add an interface/port to listen for connections
-                              (default all interfaces port: 8244, testnet:
+                              (default all interfaces port: 8766, testnet:
                               18333, signet: 38333)
       --logdir=               Directory to log output
       --maxorphantx=          Max number of orphan transactions to keep in

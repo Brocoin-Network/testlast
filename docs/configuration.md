@@ -21,24 +21,24 @@ Command Line Examples:
 |--listen=|all interfaces on default port which is changed by `--testnet` and `--regtest` (**default**)|
 |--listen=0.0.0.0|all IPv4 interfaces on default port which is changed by `--testnet` and `--regtest`|
 |--listen=::|all IPv6 interfaces on default port which is changed by `--testnet` and `--regtest`|
-|--listen=:8244|all interfaces on port 8244|
-|--listen=0.0.0.0:8244|all IPv4 interfaces on port 8244|
-|--listen=[::]:8244|all IPv6 interfaces on port 8244|
-|--listen=127.0.0.1:8244|only IPv4 localhost on port 8244|
-|--listen=[::1]:8244|only IPv6 localhost on port 8244|
+|--listen=:8766|all interfaces on port 8766|
+|--listen=0.0.0.0:8766|all IPv4 interfaces on port 8766|
+|--listen=[::]:8766|all IPv6 interfaces on port 8766|
+|--listen=127.0.0.1:8766|only IPv4 localhost on port 8766|
+|--listen=[::1]:8766|only IPv6 localhost on port 8766|
 |--listen=:8336|all interfaces on non-standard port 8336|
 |--listen=0.0.0.0:8336|all IPv4 interfaces on non-standard port 8336|
 |--listen=[::]:8336|all IPv6 interfaces on non-standard port 8336|
-|--listen=127.0.0.1:8337 --listen=[::1]:8244|IPv4 localhost on port 8337 and IPv6 localhost on port 8244|
-|--listen=:8244 --listen=:8337|all interfaces on ports 8244 and 8337|
+|--listen=127.0.0.1:8337 --listen=[::1]:8766|IPv4 localhost on port 8337 and IPv6 localhost on port 8766|
+|--listen=:8766 --listen=:8337|all interfaces on ports 8766 and 8337|
 
 The following config file would configure btcd to only listen on localhost for both IPv4 and IPv6:
 
 ```text
 [Application Options]
 
-listen=127.0.0.1:8244
-listen=[::1]:8244
+listen=127.0.0.1:8766
+listen=[::1]:8766
 ```
 
 In addition, if you are starting btcd with TLS and want to make it
@@ -115,7 +115,7 @@ configurations.
 
 |Name|Port|
 |----|----|
-|Default Bitcoin peer-to-peer port|TCP 8244|
+|Default Bitcoin peer-to-peer port|TCP 8766|
 |Default RPC port|TCP 8221|
 
 ## Using bootstrap.dat

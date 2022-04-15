@@ -11,7 +11,7 @@
 # For more information how to use this docker image visit:
 # https://github.com/btcsuite/btcd/tree/master/docs
 #
-# 8244  Mainnet Bitcoin peer-to-peer port
+# 8766  Mainnet Bitcoin peer-to-peer port
 # 8221  Mainet RPC port
 
 ARG ARCH=amd64
@@ -41,6 +41,6 @@ COPY --from=build-container /go/bin /bin
 
 VOLUME ["/root/.btcd"]
 
-EXPOSE 8244 8221
+EXPOSE 8766 8221
 
 ENTRYPOINT ["btcd"]

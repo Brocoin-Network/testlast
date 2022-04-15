@@ -256,7 +256,7 @@ type Params struct {
 var MainNetParams = Params{
 	Name:        "mainnet",
 	Net:         wire.MainNet,
-	DefaultPort: "8244",
+	DefaultPort: "8766",
 	DNSSeeds: []DNSSeed{
 		{"194.163.188.228", true},
 	/*	{"dnsseed.bluematt.me", true},
