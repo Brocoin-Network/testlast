@@ -7,7 +7,7 @@ package btcjson_test
 import (
 	"testing"
 
-	"github.com/btcsuite/btcd/btcjson"
+	"github.com/bronsuite/brond/btcjson"
 )
 
 // TestErrorCodeStringer tests the stringized output for the ErrorCode type.
@@ -24,7 +24,7 @@ func TestErrorCodeStringer(t *testing.T) {
 		{btcjson.ErrEmbeddedType, "ErrEmbeddedType"},
 		{btcjson.ErrUnexportedField, "ErrUnexportedField"},
 		{btcjson.ErrUnsupportedFieldType, "ErrUnsupportedFieldType"},
-		{btcjson.ErrNonOptionalField, "ErrNonOptionalField"},
+		{json.ErrNonOptionalField, "ErrNonOptionalField"},
 		{btcjson.ErrNonOptionalDefault, "ErrNonOptionalDefault"},
 		{btcjson.ErrMismatchedDefault, "ErrMismatchedDefault"},
 		{btcjson.ErrUnregisteredMethod, "ErrUnregisteredMethod"},

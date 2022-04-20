@@ -10,17 +10,17 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/addrmgr"
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/blockchain/indexers"
-	"github.com/btcsuite/btcd/connmgr"
-	"github.com/btcsuite/btcd/database"
-	"github.com/btcsuite/btcd/mempool"
-	"github.com/btcsuite/btcd/mining"
-	"github.com/btcsuite/btcd/mining/cpuminer"
-	"github.com/btcsuite/btcd/netsync"
-	"github.com/btcsuite/btcd/peer"
-	"github.com/btcsuite/btcd/txscript"
+	"github.com/bronsuite/brond/addrmgr"
+	"github.com/bronsuite/brond/blockchain"
+	"github.com/bronsuite/brond/blockchain/indexers"
+	"github.com/bronsuite/brond/connmgr"
+	"github.com/bronsuite/brond/database"
+	"github.com/bronsuite/brond/mempool"
+	"github.com/bronsuite/brond/mining"
+	"github.com/bronsuite/brond/mining/cpuminer"
+	"github.com/bronsuite/brond/netsync"
+	"github.com/bronsuite/brond/peer"
+	"github.com/bronsuite/brond/txscript"
 
 	"github.com/btcsuite/btclog"
 	"github.com/jrick/logrotate/rotator"
@@ -58,7 +58,7 @@ var (
 	amgrLog = backendLog.Logger("AMGR")
 	cmgrLog = backendLog.Logger("CMGR")
 	bcdbLog = backendLog.Logger("BCDB")
-	btcdLog = backendLog.Logger("BROND")
+	brondLog = backendLog.Logger("BROND")
 	chanLog = backendLog.Logger("CHAN")
 	discLog = backendLog.Logger("DISC")
 	indxLog = backendLog.Logger("INDX")
@@ -92,7 +92,7 @@ var subsystemLoggers = map[string]btclog.Logger{
 	"AMGR": amgrLog,
 	"CMGR": cmgrLog,
 	"BCDB": bcdbLog,
-	"BROND": btcdLog,
+	"BROND": brondLog,
 	"CHAN": chanLog,
 	"DISC": discLog,
 	"INDX": indxLog,

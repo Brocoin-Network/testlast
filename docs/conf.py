@@ -20,7 +20,7 @@ from recommonmark.transform import AutoStructify
 
 project = 'brond'
 copyright = '2020, brond'
-author = 'btcsuite developers'
+author = 'bronsuite developers'
 
 # The full version, including alpha/beta/rc tags
 release = 'beta'

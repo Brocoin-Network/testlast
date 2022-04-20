@@ -5,7 +5,8 @@
 package mining
 
 import (
-	"github.com/btcsuite/btclog"
+	"github.com/bronsuite/btclog"
+
 )
 
 // log is a logger that is initialized with no output filters.  This

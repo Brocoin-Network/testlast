@@ -2,14 +2,14 @@
 
 ## IRC
 
-* [irc.libera.chat](irc://irc.libera.chat), channel `#btcd`
+* [irc.libera.chat](irc://irc.libera.chat), channel `#brond`
 
 ## Mailing Lists
 
-* [btcd](mailto:btcd+subscribe@opensource.conformal.com): discussion of btcd and its packages.
-* [btcd-commits](mailto:btcd-commits+subscribe@opensource.conformal.com): readonly mail-out of source code changes.
+* [brond](mailto:brond+subscribe@opensource.conformal.com): discussion of brond and its packages.
+* [brond-commits](mailto:brond-commits+subscribe@opensource.conformal.com): readonly mail-out of source code changes.
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/btcsuite/btcd/issues)
+The [integrated github issue tracker](https://github.com/bronsuite/brond/issues)
 is used for this project.

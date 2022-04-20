@@ -28,8 +28,8 @@ func dirEmpty(dirPath string) (bool, error) {
 	return len(names) == 0, nil
 }
 
-// oldBtcdHomeDir returns the OS specific home directory btcd used prior to
-// version 0.3.3.  This has since been replaced with btcutil.AppDataDir, but
+// oldBtcdHomeDir returns the OS specific home directory brond used prior to
+// version 0.3.3.  This has since been replaced with bronutil.AppDataDir, but
 // this function is still provided for the automatic upgrade path.
 func oldBtcdHomeDir() string {
 	// Search for Windows APPDATA first.  This won't exist on POSIX OSes.
@@ -104,7 +104,7 @@ func upgradeDBPaths() error {
 	return os.RemoveAll(oldDbRoot)
 }
 
-// upgradeDataPaths moves the application data from its location prior to btcd
+// upgradeDataPaths moves the application data from its location prior to brond
 // version 0.3.3 to its new location.
 func upgradeDataPaths() error {
 	// No need to migrate if the old and new home paths are the same.
@@ -117,14 +117,14 @@ func upgradeDataPaths() error {
 	// Only migrate if the old path exists and the new one doesn't.
 	if fileExists(oldHomePath) && !fileExists(newHomePath) {
 		// Create the new path.
-		btcdLog.Infof("Migrating application home path from '%s' to '%s'",
+		brondLog.Infof("Migrating application home path from '%s' to '%s'",
 			oldHomePath, newHomePath)
 		err := os.MkdirAll(newHomePath, 0700)
 		if err != nil {
 			return err
 		}
 
-		// Move old btcd.conf into new location if needed.
+		// Move old brond.conf into new location if needed.
 		oldConfPath := filepath.Join(oldHomePath, defaultConfigFilename)
 		newConfPath := filepath.Join(newHomePath, defaultConfigFilename)
 		if fileExists(oldConfPath) && !fileExists(newConfPath) {
@@ -155,7 +155,7 @@ func upgradeDataPaths() error {
 				return err
 			}
 		} else {
-			btcdLog.Warnf("Not removing '%s' since it contains files "+
+			brondLog.Warnf("Not removing '%s' since it contains files "+
 				"not created by this application.  You may "+
 				"want to manually move them or delete them.",
 				oldHomePath)
@@ -165,7 +165,7 @@ func upgradeDataPaths() error {
 	return nil
 }
 
-// doUpgrades performs upgrades to btcd as new versions require it.
+// doUpgrades performs upgrades to brond as new versions require it.
 func doUpgrades() error {
 	err := upgradeDBPaths()
 	if err != nil {

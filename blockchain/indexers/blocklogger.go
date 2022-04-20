@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/btcsuite/btclog"
-	"github.com/btcsuite/btcutil"
+	"github.com/bronsuite/bronlog"
+	"github.com/bronsuite/bronutil"
 )
 
 // blockProgressLogger provides periodic logging for other services in order
@@ -20,7 +20,7 @@ type blockProgressLogger struct {
 	receivedLogTx     int64
 	lastBlockLogTime  time.Time
 
-	subsystemLogger btclog.Logger
+	subsystemLogger bronlog.Logger
 	progressAction  string
 	sync.Mutex
 }
@@ -29,7 +29,7 @@ type blockProgressLogger struct {
 // The progress message is templated as follows:
 //  {progressAction} {numProcessed} {blocks|block} in the last {timePeriod}
 //  ({numTxs}, height {lastBlockHeight}, {lastBlockTimeStamp})
-func newBlockProgressLogger(progressMessage string, logger btclog.Logger) *blockProgressLogger {
+func newBlockProgressLogger(progressMessage string, logger bronlog.Logger) *blockProgressLogger {
 	return &blockProgressLogger{
 		lastBlockLogTime: time.Now(),
 		progressAction:   progressMessage,
@@ -40,7 +40,7 @@ func newBlockProgressLogger(progressMessage string, logger btclog.Logger) *block
 // LogBlockHeight logs a new block height as an information message to show
 // progress to the user. In order to prevent spam, it limits logging to one
 // message every 10 seconds with duration and totals included.
-func (b *blockProgressLogger) LogBlockHeight(block *btcutil.Block) {
+func (b *blockProgressLogger) LogBlockHeight(block *bronutil.Block) {
 	b.Lock()
 	defer b.Unlock()
 

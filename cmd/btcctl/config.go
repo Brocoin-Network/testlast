@@ -13,9 +13,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/btcsuite/btcd/btcjson"
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil"
+	"github.com/bronsuite/brond/bronjson"
+	"github.com/bronsuite/brond/chaincfg"
+	"github.com/bronsuite/bronutil"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -27,13 +27,13 @@ const (
 )
 
 var (
-	btcdHomeDir           = btcutil.AppDataDir("brond", false)
-	btcctlHomeDir         = btcutil.AppDataDir("bronctl", false)
-	btcwalletHomeDir      = btcutil.AppDataDir("bronwallet", false)
-	defaultConfigFile     = filepath.Join(btcctlHomeDir, "bronctl.conf")
+	brondHomeDir           = bronutil.AppDataDir("brond", false)
+	bronctlHomeDir         = bronutil.AppDataDir("bronctl", false)
+	bronwalletHomeDir      = bronutil.AppDataDir("bronwallet", false)
+	defaultConfigFile     = filepath.Join(bronctlHomeDir, "bronctl.conf")
 	defaultRPCServer      = "localhost"
-	defaultRPCCertFile    = filepath.Join(btcdHomeDir, "rpc.cert")
-	defaultWalletCertFile = filepath.Join(btcwalletHomeDir, "rpc.cert")
+	defaultRPCCertFile    = filepath.Join(brondHomeDir, "rpc.cert")
+	defaultWalletCertFile = filepath.Join(bronwalletHomeDir, "rpc.cert")
 )
 
 // listCommands categorizes and lists all of the usable commands along with
@@ -89,7 +89,7 @@ func listCommands() {
 	}
 }
 
-// config defines the configuration options for btcctl.
+// config defines the configuration options for bronctl.
 //
 // See loadConfig for details on the configuration load process.
 type config struct {
@@ -133,8 +133,8 @@ func normalizeAddress(addr string, chain *chaincfg.Params, useWallet bool) (stri
 			}
 		case &chaincfg.RegressionNetParams:
 			if useWallet {
-				// TODO: add port once regtest is supported in btcwallet
-				paramErr := fmt.Errorf("cannot use -wallet with -regtest, btcwallet not yet compatible with regtest")
+				// TODO: add port once regtest is supported in bronwallet
+				paramErr := fmt.Errorf("cannot use -wallet with -regtest, bronwallet not yet compatible with regtest")
 				return "", paramErr
 			} else {
 				defaultPort = "18334"
@@ -163,7 +163,7 @@ func normalizeAddress(addr string, chain *chaincfg.Params, useWallet bool) (stri
 func cleanAndExpandPath(path string) string {
 	// Expand initial ~ to OS specific home directory.
 	if strings.HasPrefix(path, "~") {
-		homeDir := filepath.Dir(btcctlHomeDir)
+		homeDir := filepath.Dir(bronctlHomeDir)
 		path = strings.Replace(path, "~", homeDir, 1)
 	}
 
@@ -228,12 +228,12 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	if _, err := os.Stat(preCfg.ConfigFile); os.IsNotExist(err) {
-		// Use config file for RPC server to create default btcctl config
+		// Use config file for RPC server to create default bronctl config
 		var serverConfigPath string
 		if preCfg.Wallet {
-			serverConfigPath = filepath.Join(btcwalletHomeDir, "btcwallet.conf")
+			serverConfigPath = filepath.Join(bronwalletHomeDir, "bronwallet.conf")
 		} else {
-			serverConfigPath = filepath.Join(btcdHomeDir, "brond.conf")
+			serverConfigPath = filepath.Join(brondHomeDir, "brond.conf")
 		}
 
 		err := createDefaultConfigFile(preCfg.ConfigFile, serverConfigPath)
@@ -313,8 +313,8 @@ func loadConfig() (*config, []string, error) {
 }
 
 // createDefaultConfig creates a basic config file at the given destination path.
-// For this it tries to read the config file for the RPC server (either btcd or
-// btcwallet), and extract the RPC user and password from it.
+// For this it tries to read the config file for the RPC server (either brond or
+// bronwallet), and extract the RPC user and password from it.
 func createDefaultConfigFile(destinationPath, serverConfigPath string) error {
 	// Read the RPC server config
 	serverConfigFile, err := os.Open(serverConfigPath)

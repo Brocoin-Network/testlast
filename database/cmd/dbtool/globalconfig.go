@@ -10,21 +10,21 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/database"
-	_ "github.com/btcsuite/btcd/database/ffldb"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/bronsuite/brond/chaincfg"
+	"github.com/bronsuite/brond/database"
+	_ "github.com/bronsuite/brond/database/ffldb"
+	"github.com/bronsuite/brond/wire"
+	"github.com/bronsuite/brond/bronutil"
 )
 
 var (
-	btcdHomeDir     = btcutil.AppDataDir("brond", false)
+	brondHomeDir     = bronutil.AppDataDir("brond", false)
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 
 	// Default global config.
 	cfg = &config{
-		DataDir: filepath.Join(btcdHomeDir, "data"),
+		DataDir: filepath.Join(brondHomeDir, "data"),
 		DbType:  "ffldb",
 	}
 )
@@ -60,7 +60,7 @@ func validDbType(dbType string) bool {
 }
 
 // netName returns the name used when referring to a bitcoin network.  At the
-// time of writing, btcd currently places blocks for testnet version 3 in the
+// time of writing, brond currently places blocks for testnet version 3 in the
 // data and log directory "testnet", which does not match the Name field of the
 // chaincfg parameters.  This function can be used to override this directory name
 // as "testnet" when the passed active network matches wire.TestNet3.

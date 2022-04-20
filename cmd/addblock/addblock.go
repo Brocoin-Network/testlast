@@ -8,15 +8,15 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/blockchain"
-	"github.com/btcsuite/btcd/blockchain/indexers"
-	"github.com/btcsuite/btcd/database"
-	"github.com/btcsuite/btcd/limits"
-	"github.com/btcsuite/btclog"
+	"github.com/bronsuite/brond/blockchain"
+	"github.com/bronsuite/brond/blockchain/indexers"
+	"github.com/bronsuite/brond/database"
+	"github.com/bronsuite/brond/limits"
+	"github.com/bronsuite/bronlog"
 )
 
 const (
-	// blockDbNamePrefix is the prefix for the btcd block database.
+	// blockDbNamePrefix is the prefix for the brond block database.
 	blockDbNamePrefix = "blocks"
 )
 

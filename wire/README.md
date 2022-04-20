@@ -1,16 +1,16 @@
 wire
 ====
 
-[![Build Status](https://github.com/btcsuite/btcd/workflows/Build%20and%20Test/badge.svg)](https://github.com/btcsuite/btcd/actions)
+[![Build Status](https://github.com/bronsuite/brond/workflows/Build%20and%20Test/badge.svg)](https://github.com/bronsuite/brond/actions)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://pkg.go.dev/github.com/btcsuite/btcd/wire)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](https://pkg.go.dev/github.com/bronsuite/brond/wire)
 =======
 
 Package wire implements the bitcoin wire protocol.  A comprehensive suite of
 tests with 100% test coverage is provided to ensure proper functionality.
 
 There is an associated blog post about the release of this package
-[here](https://blog.conformal.com/btcwire-the-bitcoin-wire-protocol-package-from-btcd/).
+[here](https://blog.conformal.com/bronwire-the-bitcoin-wire-protocol-package-from-brond/).
 
 This package has intentionally been designed so it can be used as a standalone
 package for any projects needing to interface with bitcoin peers at the wire
@@ -19,7 +19,7 @@ protocol level.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/btcsuite/btcd/wire
+$ go get -u github.com/bronsuite/brond/wire
 ```
 
 ## Bitcoin Message Overview

@@ -9,11 +9,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/database"
-	_ "github.com/btcsuite/btcd/database/ffldb"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/bronsuite/brond/chaincfg"
+	"github.com/bronsuite/brond/database"
+	_ "github.com/bronsuite/brond/database/ffldb"
+	"github.com/bronsuite/brond/wire"
+	"github.com/bronsuite/bronutil"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -25,8 +25,8 @@ const (
 )
 
 var (
-	btcdHomeDir     = btcutil.AppDataDir("brond", false)
-	defaultDataDir  = filepath.Join(btcdHomeDir, "data")
+	brondHomeDir     = bronutil.AppDataDir("brond", false)
+	defaultDataDir  = filepath.Join(brondHomeDir, "data")
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 )
@@ -37,7 +37,7 @@ var (
 type config struct {
 	DataDir        string `short:"b" long:"datadir" description:"Location of the brond data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
-	UseGoOutput    bool   `short:"g" long:"gooutput" description:"Display the candidates using Go syntax that is ready to insert into the btcchain checkpoint list"`
+	UseGoOutput    bool   `short:"g" long:"gooutput" description:"Display the candidates using Go syntax that is ready to insert into the bronchain checkpoint list"`
 	NumCandidates  int    `short:"n" long:"numcandidates" description:"Max num of checkpoint candidates to show {1-20}"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
 	SimNet         bool   `long:"simnet" description:"Use the simulation test network"`

@@ -9,11 +9,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/database"
-	_ "github.com/btcsuite/btcd/database/ffldb"
-	"github.com/btcsuite/btcd/wire"
-	"github.com/btcsuite/btcutil"
+	"github.com/bronsuite/brond/chaincfg"
+	"github.com/bronsuite/brond/database"
+	_ "github.com/bronsuite/brond/database/ffldb"
+	"github.com/bronsuite/brond/wire"
+	"github.com/bronsuite/bronutil"
 	flags "github.com/jessevdk/go-flags"
 )
 
@@ -24,8 +24,8 @@ const (
 )
 
 var (
-	btcdHomeDir     = btcutil.AppDataDir("brond", false)
-	defaultDataDir  = filepath.Join(btcdHomeDir, "data")
+	brondHomeDir     = bronutil.AppDataDir("brond", false)
+	defaultDataDir  = filepath.Join(brondHomeDir, "data")
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 )
